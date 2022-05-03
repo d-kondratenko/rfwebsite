@@ -9,7 +9,7 @@
 #
 # app = Flask(__name__)
 # CORS(app)
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://rfadmin:rfadmin@localhost/rfwebsite'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://'
 # app.config['SQLALCHEMY_BINDS'] = {
 #
 # }
