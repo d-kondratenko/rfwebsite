@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{%block script%}
+<!--    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">-->
+<!--    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>-->
+<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
+{%endblock%}
+{% block content%}
+<div class="container">
+<h1 class="text-center w-55"> Payment info </h1>
+    {% for code in data4 %}
+    <p class="text-center w-55"> Code: {{ code.code }} cost: {{ code.cost }}</p>
+<!--        <p class="text-center w-55">Enter the account number in the comments: {{ current_user.user_bill }}</p>-->
+    {% endfor %}
+<!--        <p class="text-center w-55"> Currency: 1 UAH = 1 Coin </p>-->
+        <p class="text-center w-55">
+        <button class="btn btn-primary">
+            <a href="{{url_for('donate_page')}}" style="color: white"> Donate </a>
+        </button>
+        </p>
+
+
+   <h1 class="text-center w-55">Transfer coefficients</h1>
+            <table id="transf_coef" class="table table-striped table-sm w-55" role="grid">
+                <thead>
+                <tr role="row">
+                    <th class="th-sm sorting text-center" aria-controls="transf_coef" tabindex=0 aria-lable="project : active to sort column ascending">
+                        Project
+                    </th>
+                    <th class="text-center" scope="col">Main</th>
+                    <th class="text-center" scope="col">RF Online</th>
+                    <th class="text-center" scope="col">World Of Warcraft</th>
+                    <th class="text-center" scope="col">Linage 2</th>
+                    <th class="text-center" scope="col">Forsaken World</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for el3 in data3 %}
+                <tr>
+                    <td class="text-center">{{ el3.project_name }}</td>
+                    <td class="text-center">{{ el3.main }}</td>
+                    <td class="text-center">{{ el3.rf }}</td>
+                    <td class="text-center">{{ el3.wow }}</td>
+                    <td class="text-center">{{ el3.l2 }}</td>
+                    <td class="text-center">{{ el3.fw }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <p class="text-center w-55">
+        <button class="btn btn-primary">
+            <a href="{{url_for('transfer_page')}}" style="color: white"> Transfer </a>
+        </button>
+        </p>
+            <br>
+            <h1>Game balance</h1>
+         <table class="table table-striped table-sm w-55">
+        <thead>
+            <th class="text-center" scope="col">Project</th>
+            <th class="text-center" scope="col">Balance</th>
+        </thead>
+        <tbody>
+        {% for el2 in data2 %}
+            <tr>
+                <td class="text-center">{{ el2.project }}</td>
+                <td class="text-center">{{ el2.balance }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+    </div>
+
+{% endblock %}

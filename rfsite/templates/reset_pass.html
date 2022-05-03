@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}
+Reset password
+{% endblock %}
+{% block content %}
+<body class="text-center">
+<main class="form-assign">
+    <div class="container-fluid d-flex h-100 justify-content-center align-items-center p-0">
+<form method="post" class="form-register">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <img class="mb-4" src="/static/brand/rf-online-logo.png" alt="" width="72" height="57">
+    <h1> Reset password </h1>
+    <div class="container-fluid d-flex h-100 justify-content-center align-items-center p-0">
+    <label for="username">
+        Username
+        <div class="container-fluid d-flex h-100 justify-content-center align-items-center p-0">
+        <input type="text" id="username" name="username" placeholder="username" required="">
+            </div>
+    </label>
+        </div>
+    <div class="container-fluid d-flex h-100 justify-content-center align-items-center p-0">
+    <label>
+        Email
+        <div class="container-fluid d-flex h-100 justify-content-center align-items-center p-0">
+        <input type="email" id="email" name="email" placeholder="email" required="">
+            </div>
+    </label>
+        </div>
+     <div class="container">
+    <button type="submit" class="btn btn-primary"> Send </button>
+         </div>
+</form>
+    </div>
+    </main>
+</body>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}
+Reset password
+{% endblock %}
+{% block content %}
+<body class="text-center">
+<main class="form-assign">
+    <div class="container-fluid d-flex h-100 justify-content-center align-items-center p-0">
+<form method="post" class="form-register">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <img class="mb-4" src="/static/brand/rf-online-logo.png" alt="" width="72" height="57">
+    <h1> Create new password </h1>
+    <div class="container-fluid d-flex h-100 justify-content-center align-items-center p-0">
+    <label for="pass1">
+        Password
+        <div class="container-fluid d-flex h-100 justify-content-center align-items-center p-0">
+        <input type="password" id="pass1" name="pass1" placeholder="new password" required="">
+            </div>
+    </label>
+        </div>
+    <div class="container-fluid d-flex h-100 justify-content-center align-items-center p-0">
+    <label>
+        Confirm password
+        <div class="container-fluid d-flex h-100 justify-content-center align-items-center p-0">
+        <input type="password" id="pass2" name="pass2" placeholder="confirm password" required="">
+            </div>
+    </label>
+        </div>
+     <div class="container">
+    <button type="submit" class="btn btn-primary"> Send </button>
+         </div>
+</form>
+    </div>
+    </main>
+</body>
+{% endblock %}

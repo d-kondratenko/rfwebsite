@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Donate page
+{% endblock %}
+
+{% block content %}
+<body class="text-center">
+    <div class="container-fluid d-flex h-100 justify-content-center align-items-center p-0">
+         <form method="post" class="form-register">
+             {{ form.hidden_tag() }}
+             <img class="mb-4" src="/static/brand/rf-online-logo.png" alt="" width="72" height="57">
+
+             <h1 class="h3 mb-3 font-weight-normal">
+               Donate
+             </h1>
+             <br>
+        {{ form.amount.label() }}
+        <div class="container-fluid d-flex h-100 justify-content-center align-items-center p-0">
+        {{ form.amount(class="form-control", placeholder="Code") }}
+        </div>
+             <br>
+        <div class="container-fluid d-flex h-100 justify-content-center align-items-center p-0">
+        {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+        </div>
+    </form>
+    </div>
+    </body>
+{% endblock %}

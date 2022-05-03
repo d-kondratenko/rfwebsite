@@ -1,0 +1,76 @@
+{% extends "rf_online_main.html" %}
+{% block script%}
+
+{% endblock %}
+{% block am_game %}
+
+    <a class="nav-link">
+                        <i class="fas fa-coins"> Current project amount: {{ amount }}</i>
+                    </a>
+{% endblock %}
+{% block div1 %}
+ <h1 class="text-center"> Buy Premium </h1>
+        <br>
+<form method="post" class="form-group text-center">
+                <label for="username_prem">
+                    Username
+                    <input type="text" id="username_prem" name="username_prem" placeholder="Username" class="form-control" value={{data}}>
+                </label> <br>
+    <label for="amount_prem" >
+        Count days
+        <input type="number" class="form-control prc" id="amount_prem" name="amount_prem" value=1>
+    </label> <br>
+
+    <label>
+        Sum (1 day = 15 RF Coin)
+        <input id="result_prem" name="result_prem" class="form-control" value=15>
+    </label><br>
+    <button type="submit" class="btn btn-primary">Buy Premium</button>
+</form>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $('.form-group').on('input', '.prc', function(){
+        var totalSum = 0;
+        $('.form-group .prc').each(function(){
+            var inputVal = $(this).val();
+            if ($.isNumeric(inputVal)){
+                totalSum = parseFloat(inputVal) * 15;
+            }
+        });
+        $('#result_prem').val(totalSum);
+    });
+</script>
+{% endblock %}
+{% block div2 %}
+ <h1 class="text-center"> Buy Cash </h1>
+<br>
+<form method="post" class="form-group">
+                <label for="username_cash">
+                    Username
+                    <input type="text" id="username_cash" name="username_cash" placeholder="Username" class="form-control" value={{data}}>
+                </label> <br>
+    <label for="amount_cash" >
+        Amount
+        <input type="number" class="form-control crp" id="amount_cash" name="amount_cash" value=1>
+    </label> <br>
+
+    <label>
+        Sum (1 Cash = 10 RF Coin)
+        <input id="result_cash" name="result_cash" class="form-control" value=10>
+    </label><br>
+    <button type="submit" class="btn btn-primary">Buy Cash</button>
+</form>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $('.form-group').on('input', '.crp', function(){
+        var totalSum = 0;
+        $('.form-group .crp').each(function(){
+            var inputVal = $(this).val();
+            if ($.isNumeric(inputVal)){
+                totalSum = parseFloat(inputVal) * 10;
+            }
+        });
+        $('#result_cash').val(totalSum);
+    });
+</script>
+{% endblock %}
