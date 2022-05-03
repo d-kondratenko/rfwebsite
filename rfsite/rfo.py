@@ -5,10 +5,10 @@ from rfsite.models.ws_game_account_assign import ws_game_account_assign
 
 
 def create_user_rf(u_name, u_pw):
-    server = 'tcp:192.168.99.112'
-    database = 'RF_User'
-    username = 'sa'
-    password = 'S8q64S8q64'
+    server = ''
+    database = ''
+    username = ''
+    password = ''
     try:
         cnxn = po.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER=' +
                       server + ';DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
@@ -26,10 +26,10 @@ def create_user_rf(u_name, u_pw):
 
 
 def check_username(u_name):
-    server = 'tcp:192.168.99.112'
-    database = 'RF_User'
-    username = 'sa'
-    password = 'S8q64S8q64'
+    server = ''
+    database = ''
+    username = ''
+    password = ''
     try:
         cnxn = po.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER=' +
                       server + ';DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
@@ -50,10 +50,10 @@ def check_username(u_name):
 
 
 def get_info(u_name):
-    server = 'tcp:192.168.99.112'
-    database = 'BILLING'
-    username = 'sa'
-    password = 'S8q64S8q64'
+    server = ''
+    database = ''
+    username = ''
+    password = ''
     try:
         cnxn = po.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER=' +
                           server + ';DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
