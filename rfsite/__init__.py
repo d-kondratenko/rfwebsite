@@ -6,11 +6,11 @@ from flask_login import LoginManager
 from flask_cors import CORS
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://rfadmin:rfadmin@localhost/rfwebsite'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://'
 
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = "8e5ecd37c7944ff3e0f4bc4e"
+app.config['SECRET_KEY'] = ""
 CORS(app)
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
