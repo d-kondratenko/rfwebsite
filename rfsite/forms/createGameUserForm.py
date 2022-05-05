@@ -3,12 +3,13 @@ from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import Length, DataRequired, ValidationError
 
 from rfsite import rfo
+from rfsite.models.rf_account import rf_account
 
 
 class createGameUserForm(FlaskForm):
 
     def validate_username(self, username):
-        v = rfo.check_username(username.data)
+        v = rf_account.query.filter_by(id=username.data.encode('utf-8')).all()
         if v:
             raise ValidationError(f"Username: {username.data} exists in database")
 
