@@ -5,15 +5,14 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_cors import CORS
 
+from rfsite.myconf import uri_def, binds, secret_key
+
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://rfadmin:rfadmin@localhost/rfwebsite'
-app.config['SQLALCHEMY_BINDS'] = {
-    'rfUsers': 'mssql+pymssql://sa:S8q64S8q64@192.168.99.112/RF_User',
-    'billing': 'mssql+pymssql://sa:S8q64S8q64@192.168.99.112/Billing'
-}
+app.config['SQLALCHEMY_DATABASE_URI'] = uri_def
+app.config['SQLALCHEMY_BINDS'] = binds
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = "ecd90f065a52b1907c15644b6ee9e4d73ef6f8850115d6c499847ecc9cbefe75"
+app.config['SECRET_KEY'] = secret_key
 CORS(app)
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)

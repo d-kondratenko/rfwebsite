@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import Length, DataRequired, ValidationError
 
-from rfsite import rfo
+
 from rfsite.models.rf_account import rf_account
 
 

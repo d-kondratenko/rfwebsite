@@ -1,7 +1,7 @@
 from flask import render_template, flash
 from flask_login import current_user
 
-from rfsite import rfo, db
+from rfsite import db
 from rfsite.forms.createGameUserForm import createGameUserForm
 from rfsite.models.rf_account import rf_account
 from rfsite.models.rf_userstatus import rf_userstatus
