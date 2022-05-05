@@ -27,7 +27,7 @@ def mainRFService():
         tb_username = username.encode('utf-8')
         tb_password = password.encode('utf-8')
         user = rf_account.query.filter_by(id=tb_username).first()
-        if user in None:
+        if user is None:
             new_user = rf_account(
                 id=tb_username,
                 password=tb_password,

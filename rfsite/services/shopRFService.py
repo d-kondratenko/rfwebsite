@@ -26,15 +26,19 @@ def shopRFService():
                 gacc = ws_game_account_assign.query.filter_by(account_name=u_id).first()
                 acc = rf_userstatus.query.filter_by(id=u_id).first()
                 if acc is None:
-                    serial = rf_useraccount.query.filter_by(id=u_id.encode('utf-8'))
-                    new_userstatus = rf_userstatus(
-                        serial=serial.serial,
-                        id=request.form.get('username_prem'),
-                        Status=2,
-                        Cash=0
-                    )
-                    db.session.add(new_userstatus)
-                    db.session.commit()
+                    serial = rf_useraccount.query.filter_by(id=u_id.encode('utf-8')).first()
+                    if serial is not None:
+                        new_userstatus = rf_userstatus(
+                            serial=serial.serial,
+                            id=request.form.get('username_prem'),
+                            Status=2,
+                            Cash=0
+                        )
+                        db.session.add(new_userstatus)
+                        db.session.commit()
+                    else:
+                        flash("Please enter the game first, then try again", category='danger')
+                        return render_template('rfShop.html', amount=pretty_budget, data=data)
                 if acc.Status == 1:
                     acc.Status = 2
                     gacc.is_premium = 'T'
@@ -74,16 +78,19 @@ def shopRFService():
                 gacc = ws_game_account_assign.query.filter_by(account_name=u_id).first()
                 acc = rf_userstatus.query.filter_by(id=u_id).first()
                 if acc is None:
-                    serial = rf_useraccount.query.filter_by(id=u_id.encode('utf-8'))
-                    new_userstatus = rf_userstatus(
-                        serial=serial.serial,
-                        id=request.form.get('username_cash'),
-                        Status=1,
-                        Cash=0
-                    )
-                    db.session.add(new_userstatus)
-                    db.session.commit()
-
+                    serial = rf_useraccount.query.filter_by(id=u_id.encode('utf-8')).first()
+                    if serial is not None:
+                        new_userstatus = rf_userstatus(
+                            serial=serial.serial,
+                            id=request.form.get('username_cash'),
+                            Status=1,
+                            Cash=0
+                        )
+                        db.session.add(new_userstatus)
+                        db.session.commit()
+                    else:
+                        flash("Please enter the game first, then try again", category='danger')
+                        return render_template('rfShop.html', amount=pretty_budget, data=data)
                 acc.Cash += int(request.form.get('amount_cash'))
                 gacc.cash += int(request.form.get('amount_cash'))
                 gp = ws_game_payments(
