@@ -6,6 +6,7 @@ from datetime import datetime
 
 from rfsite import db
 from rfsite.models.ws_donate_code import ws_donate_code
+from rfsite.myconf import email_user, email_password
 
 
 def generateToken(username, email):
@@ -45,8 +46,8 @@ def send_mail(subj, to, message_text):
 
     msg = "From: %s\nTo: %s\nSubject: %s\nDate: %s\n\n%s" % (fromMy, to, subj, date, message_text)
 
-    username = str('ws_rf@yahoo.com')
-    password = str('pxgxqxcbrdbumscq')
+    username = email_user
+    password = email_password
 
     try:
         server = smtplib.SMTP_SSL('smtp.mail.yahoo.com', 465)
