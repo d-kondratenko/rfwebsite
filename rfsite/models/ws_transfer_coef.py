@@ -11,6 +11,7 @@ class ws_transfer_coef(db.Model):
     wow = db.Column(db.Float(), nullable=False)
     l2 = db.Column(db.Float(), nullable=False)
     fw = db.Column(db.Float(), nullable=False)
+    is_available = db.Column(db.Integer(), nullable=False, default=0)
 
 
 #admin.add_view(ModelView(ws_transfer_coef, db.session))

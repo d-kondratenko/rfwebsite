@@ -7,6 +7,7 @@ from rfsite.forms.DonateForm import DonateForm
 from rfsite.models.ws_donate_code import ws_donate_code
 from rfsite.models.ws_game_balance import ws_game_balance
 from rfsite.models.ws_payment_history import ws_payment_history
+from rfsite.models.ws_users import ws_users
 
 
 def donate():
@@ -23,13 +24,16 @@ def donate():
                 payment_sum=float(dc.cost))
             gb = ws_game_balance.query.filter_by(user_id=current_user.user_id,
                                                  project='Main').first()
+            us = ws_users.query.filter_by(user_id=current_user.user_id).first()
             if gb:
                 gb.balance += float(dc.cost)
+                us.budget += float(dc.cost)
             else:
                 gb = ws_game_balance(project='Main',
                                      user_id=current_user.user_id,
                                      user_bill=current_user.user_bill,
                                      balance=dc.cost)
+                us.budget += float(dc.cost)
                 db.session.add(gb)
                 db.session.commit()
             db.session.add(payment)
