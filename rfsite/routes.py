@@ -9,6 +9,7 @@ from rfsite.services.donateService import donate
 from rfsite.services.indexService import index
 from rfsite.services.loginService import login
 from rfsite.services.logoutService import logout
+from rfsite.services.mainPWService import mainPWService
 from rfsite.services.mainRFService import mainRFService
 from rfsite.services.mainRegPageService import reg_page
 from rfsite.services.phServices import phservices
@@ -80,6 +81,12 @@ def rfmain_page():
 @login_required
 def rfshop_page():
     return shopRFService()
+
+
+@app.route('/pwmain', methods=['GET', 'POST'])
+@login_required
+def pwmain_page():
+    return mainPWService()
 
 
 @app.route('/verify')
