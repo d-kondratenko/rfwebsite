@@ -1,0 +1,20 @@
+INSERT INTO `rfwebsite`.`ws_users`
+(`user_id`,
+`username`,
+`email`,
+`password_hash`,
+`user_bill`,
+`budget`,
+`is_activate`,
+`token`,
+`is_admin`)
+VALUES
+(1,
+'admin',
+'admin@admin.adm',
+'$2b$12$vE68eGKqC.WkXG3UBAkN5uBKrFs8LC6tZbaf6.Mb3Rpvir.WlfL/.',
+'ecd90f065a52b1907c15644b6ee9e4d73ef6f8850115d6c499847ecc9cbefe75',
+0
+1
+null,
+1);
